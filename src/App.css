@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -14,7 +15,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #0000006b;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +36,74 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.klir:focus {
+  outline: none;
+}
+
+/* ================================================ */
+/* ================= welcome page ================= */
+/* ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.intro1 {
+  font-family: 'Pacifico', cursive;
+  width: 45%;
+  padding: 30px;
+  margin-right: 10%;
+  color: #efefef;
+  font-size: 50px;
+  float: left;
+  border: 1px white solid;
+}
+.intro2 {
+  width: 45%;
+  padding: 30px;
+  background-color: #efefefdd;
+  border-radius: 15px;
+  float: left;
+}
+.contain {
+  display: flex;
+  align-items: stretch;
+}
+.kont {
+  position: fixed;
+}
+
+@media only screen and (max-width:700px) {
+  .intro1 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .intro2 {width: 100%;}
+  .contain {
+    display: block;
+  }
+  .kont {
+    position: initial;
+  }
+}
+
+/* ================================================ */
+/* ================= profile page ================= */
+/* ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.logo {
+  font-family: 'Lobster', cursive;
+}
+.menu1 {
+  display: flex;
+}
+.menu2 {
+  display: none;
+}
+
+@media only screen and (max-width:700px) {
+  .menu1 {display: none;}
+  .menu2 {display: block;}
 }
