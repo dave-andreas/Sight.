@@ -5,3 +5,7 @@ export const ganti = (apa) => {
 export const sidenav = () => {
     return {type:'sidenav'}
 }
+
+export const darkmode = () => {
+    return {type:'dark'}
+}

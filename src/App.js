@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import {Switch,Route} from 'react-router-dom'
+import {connect} from 'react-redux'
 import Welcome from './pages/walcome'
 import Profile from './pages/profile'
 
-function App () {
+function App ({dark}) {
   return (
-    <div style={{backgroundColor:'#e9e9e9',position:'fixed',width:'100%',height:'100%'}}>
-      <div style={{position:'fixed',width:'100%',height:'100%'}} />
+    <div style={{backgroundColor:dark?'#222222':'#e9e9e9',width:'100%'}}>
       <Switch>
         <Route path={'/'} exact component={Welcome} />
         <Route path={'/user/profile'} exact component={Profile} />
@@ -16,4 +16,10 @@ function App () {
   );
 }
 
-export default App;
+const stp = ({reducer}) => {
+  return {
+    dark: reducer.dark
+  }
+}
+
+export default connect(stp) (App);

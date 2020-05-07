@@ -42,6 +42,19 @@
   outline: none;
 }
 
+/* night mode */
+.header {
+  background-color: #26235d;
+}
+
+.page {
+  background-color: #333333;
+}
+
+.newpos {
+  background-color: #999999
+}
+
 /* ================================================ */
 /* ================= welcome page ================= */
 /* ================================================ */
@@ -50,13 +63,13 @@
 
 .intro1 {
   font-family: 'Pacifico', cursive;
+  border: 1px white solid;
   width: 45%;
   padding: 30px;
   margin-right: 10%;
   color: #efefef;
   font-size: 50px;
   float: left;
-  border: 1px white solid;
 }
 .intro2 {
   width: 45%;
@@ -68,12 +81,13 @@
 .contain {
   display: flex;
   align-items: stretch;
+  z-index: 1;
 }
 .kont {
-  position: fixed;
+  position: absolute;
 }
 
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:720px) {
   .intro1 {
     width: 100%;
     margin-bottom: 20px;
@@ -88,7 +102,7 @@
 }
 
 /* ================================================ */
-/* ================= profile page ================= */
+/* ==================== Header ==================== */
 /* ================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
@@ -103,7 +117,38 @@
   display: none;
 }
 
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:720px) {
   .menu1 {display: none;}
   .menu2 {display: block;}
+}
+
+/* ================================================ */
+/* ================= Profile Page ================= */
+/* ================================================ */
+
+.info {
+  /* border: solid 1px; */
+  float: left;
+  width: 25%;
+  color: #4e4e4e;
+}
+
+.feed {
+  /* border: solid 1px; */
+  float: left;
+  width: 75%;
+}
+
+.profcon {
+  padding: 0px 40px;
+}
+
+@media only screen and (max-width:720px) {
+  .info, .feed {
+    width: 100%;
+  }
+
+  .profcon {
+    padding: 0px 20px;
+  }
 }
