@@ -5,8 +5,14 @@ import Login from '../components/login'
 import Signup from '../components/signup'
 import {ganti} from '../redux/action'
 import {connect} from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
-const Welcome = ({togel,ganti}) => {
+const Welcome = ({togel,ganti,login}) => {
+
+    if (login) {
+        return <Redirect to={'/user/profile'} />
+    }
+
     return (
         <div >
             <div style={{
@@ -48,9 +54,10 @@ const Welcome = ({togel,ganti}) => {
     )
 }
 
-const stp = ({reducer}) => {
+const stp = ({reducer,authreducer}) => {
     return {
-        togel: reducer.init
+        togel: reducer.init,
+        login: authreducer.login
     }
 }
 

@@ -137,19 +137,21 @@
   /* border: solid 1px; */
   float: left;
   width: 75%;
+  padding-left: 23px;
 }
 
 .profcon {
-  padding: 0px 40px;
+  padding: 0px 20px;
 }
 
 @media only screen and (max-width:720px) {
   .info, .feed {
     width: 100%;
+    padding: 0px;
   }
 
   .profcon {
-    padding: 0px 20px;
+    padding: 0px 13px;
   }
 }
 

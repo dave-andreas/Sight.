@@ -1,16 +1,30 @@
-import React, {useEffect} from 'react'
+import React, {useEffect,useState} from 'react'
 import Header from '../components/header'
 import foto from '../image/profile.jpg'
 import {connect} from 'react-redux'
 import {Paper,TextField,Button} from '@material-ui/core'
 import {Save} from '@material-ui/icons'
+import {Redirect} from 'react-router-dom'
+import Axios from 'axios'
+import { apiurl } from '../apiurl'
 
-const Setting = ({dark}) => {
+const Setting = ({dark,login}) => {
+    const [info,setinfo] = useState({})
 
     useEffect(() => {
-        // var x = 'y'
+        Axios.get(`${apiurl}/user/userinfo/${localStorage.getItem('uid')}`)
+        .then(res => {
+            setinfo(res.data)
+        }).catch(err => {
+            console.log(err)
+        })
     },[])
 
+    if (!login) {
+        return <Redirect to={'/'} />
+    }
+
+    console.log(info)
     return (
         <div>
             <Header/>
@@ -31,7 +45,7 @@ const Setting = ({dark}) => {
                     <Paper className='d-flex flex-column align-items-center pt-2' elevation={3} style={{width:'100%',maxWidth:800}}>
                         <div style={{width:'98%',maxWidth:800}}>
                             <div className='form1 px-1'>
-                                <TextField label='Name' variant='outlined' size='small' fullWidth defaultValue='David Roynaldo Andreas' />
+                                <TextField label='Name' variant='outlined' size='small' fullWidth />
                             </div>
                             <div className='form1 px-1'>
                                 <TextField label='Username' variant='outlined' size='small' fullWidth />
@@ -67,9 +81,10 @@ const Setting = ({dark}) => {
     )
 }
 
-const stp = ({reducer}) => {
+const stp = ({reducer,authreducer}) => {
     return {
-        dark: reducer.dark
+        dark: reducer.dark,
+        login: authreducer.login
     }
 }
 

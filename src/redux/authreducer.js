@@ -7,9 +7,9 @@ const INITIAL = {
 
 export default (state=INITIAL,action) => {
     switch (action.type){
-        case 'login-loading' : return {...state, loading:true}
-        case 'login-error' : return {...state, loading:false, message:action.payload}
-        case 'login-success' : return {...state, loading:false, message:'login success', id:action.payload}
+        case 'loading' : return {...state, loading:true}
+        case 'error' : return {...state, loading:false, message:action.payload}
+        case 'login-success' : return {...state, loading:false, message:'login success', id:action.payload, login:true}
         default : return state
     }
 }

@@ -1,12 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import {Switch,Route} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {checklogin} from './redux/action'
 import Welcome from './pages/walcome'
 import Profile from './pages/profile'
 import Setting from './pages/setting'
 
-function App ({dark}) {
+function App ({dark,checklogin}) {
+
+  useEffect (() => {
+    checklogin()
+  })
+  
   return (
     <div style={{backgroundColor:dark?'#222222':'#e9e9e9',width:'100%'}}>
       <Switch>
@@ -24,4 +30,4 @@ const stp = ({reducer}) => {
   }
 }
 
-export default connect(stp) (App);
+export default connect(stp,{checklogin}) (App);

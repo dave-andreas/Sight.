@@ -4,8 +4,15 @@ import foto from '../image/profile.jpg'
 import {Paper,Divider} from '@material-ui/core'
 import NewPost from '../components/newpost'
 import Post from '../components/post'
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
-const Profile = () => {
+const Profile = ({login}) => {
+
+    if (!login) {
+        return <Redirect to={'/'} />
+    }
+
     return (
         <div>
             <Header/>
@@ -27,7 +34,7 @@ const Profile = () => {
                     <div style={{width:'100%',maxWidth:900,marginTop:-40}}>
 
                         {/* info */}
-                        <div className='info d-flex flex-column align-items-center px-2 mb-3'>
+                        <div className='info d-flex flex-column align-items-center mb-3'>
                             <Paper elevation={4} style={{padding:5,borderRadius:'100%',marginBottom:15}}>
                                 <img src={foto} style={{width:130,height:130,borderRadius:'100%'}} alt={'profile pic'} />
                             </Paper>
@@ -46,7 +53,7 @@ const Profile = () => {
                         </div>
 
                         {/* feed */}
-                        <div className='feed d-flex flex-column align-items-center px-2'>
+                        <div className='feed d-flex flex-column align-items-center'>
                             <NewPost/>
                             <Post/>
                             <Post/>
@@ -59,4 +66,10 @@ const Profile = () => {
     )
 }
 
-export default Profile
+const stp = ({authreducer}) => {
+    return {
+        login: authreducer.login
+    }
+}
+
+export default connect(stp) (Profile)
