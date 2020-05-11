@@ -52,10 +52,11 @@ const NewPost = ({dark}) => {
                     <div className='d-flex align-items-center'>
                         <Lock style={{fontSize:13,color:dark?'#bbbbbb':'grey',marginRight:3}} />
                         <span style={{fontSize:13}}>Private Only</span>
-                    </div>}
+                    </div>
+                    }
                 </div>
                 <div className='d-flex justify-content-center align-items-center'>
-                    <div style={{fontSize:12,color:dark?'#bbbbbb':'grey',marginRight:10}}>0/300</div>
+                    <div style={{fontSize:12,color:dark?'#bbbbbb':'grey',marginRight:10}}>0/365</div>
                     <Button className='klir' variant='contained' color='primary' endIcon={<PostAdd/>} style={{background:'linear-gradient(to bottom right, #5851d8 0%, #c13584 100%)'}}>Share</Button>
                 </div>
             </div>

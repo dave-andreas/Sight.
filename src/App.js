@@ -4,6 +4,7 @@ import {Switch,Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Welcome from './pages/walcome'
 import Profile from './pages/profile'
+import Setting from './pages/setting'
 
 function App ({dark}) {
   return (
@@ -11,6 +12,7 @@ function App ({dark}) {
       <Switch>
         <Route path={'/'} exact component={Welcome} />
         <Route path={'/user/profile'} exact component={Profile} />
+        <Route path={'/user/setting'} exact component={Setting} />
       </Switch>
     </div>
   );

@@ -35,8 +35,8 @@ const Header = ({dark,darkmode,sidenav}) => {
                 <div className='mr-3 menu1'>
                     <Switch color='default' onChange={changeswitch} />
                     <Button className='klir ml-2' color='inherit' style={{float:'left',width:100}}><strong>timeline</strong></Button>
-                    <Button className='klir ml-2' color='inherit'><strong>profile</strong></Button>
-                    <Button className='klir ml-2' color='inherit'><strong>setting</strong></Button>
+                    <Button className='klir ml-2' color='inherit' component={Link} to={'/user/profile'} style={{textDecoration:'none',color:'white'}}><strong>profile</strong></Button>
+                    <Button className='klir ml-2' color='inherit' component={Link} to={'/user/setting'} style={{textDecoration:'none',color:'white'}}><strong>setting</strong></Button>
                 </div>
                 <div className='mx-3 menu2'>
                     <IconButton className='klir' style={{margin:-7}} aria-controls="simple-menu" aria-haspopup="true" onClick={changeopen} >
@@ -44,8 +44,8 @@ const Header = ({dark,darkmode,sidenav}) => {
                     </IconButton>
                     <Menu id="simple-menu" anchorEl={open} keepMounted open={Boolean(open)} onClose={changeclose}>
                         <MenuItem onClick={changeclose}>Timeline</MenuItem>
-                        <MenuItem onClick={changeclose}>Profile</MenuItem>
-                        <MenuItem onClick={changeclose}>Setting</MenuItem>
+                        <MenuItem onClick={changeclose} component={Link} to={'/user/profile'} style={{textDecoration:'none'}}>Profile</MenuItem>
+                        <MenuItem onClick={changeclose} component={Link} to={'/user/setting'} style={{textDecoration:'none'}}>Setting</MenuItem>
                     </Menu>
                 </div>
             </Paper>
