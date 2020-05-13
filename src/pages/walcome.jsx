@@ -5,7 +5,7 @@ import Login from '../components/login'
 import Signup from '../components/signup'
 import {ganti} from '../redux/action'
 import {connect} from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 const Welcome = ({togel,ganti,login}) => {
 

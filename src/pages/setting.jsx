@@ -4,11 +4,11 @@ import foto from '../image/profile.jpg'
 import {connect} from 'react-redux'
 import {Paper,TextField,Button} from '@material-ui/core'
 import {Save} from '@material-ui/icons'
-import {Redirect} from 'react-router-dom'
 import Axios from 'axios'
 import { apiurl } from '../apiurl'
+import {Redirect} from 'react-router-dom'
 
-const Setting = ({dark,login}) => {
+const Setting = ({dark,login,loading}) => {
     const [info,setinfo] = useState({})
 
     useEffect(() => {
@@ -20,11 +20,10 @@ const Setting = ({dark,login}) => {
         })
     },[])
 
-    if (!login) {
+    if (!localStorage.getItem('uid')) {
         return <Redirect to={'/'} />
     }
 
-    console.log(info)
     return (
         <div>
             <Header/>
@@ -84,7 +83,8 @@ const Setting = ({dark,login}) => {
 const stp = ({reducer,authreducer}) => {
     return {
         dark: reducer.dark,
-        login: authreducer.login
+        login: authreducer.login,
+        loading: authreducer.loading
     }
 }
 

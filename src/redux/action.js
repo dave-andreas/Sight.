@@ -25,8 +25,16 @@ export const login = (data) => {
             Axios.get(`${apiurl}/user/login?username=${username}&password=${password}`)
             .then(res => {
                 if (res.data.length) {
-                    dispatch({type: 'login-success', payload: res.data[0].id})
                     localStorage.setItem('uid', res.data[0].id)
+                    var x = false
+                    if (res.data[0].darkmode === 1) {
+                        console.log(1)
+                        x = true
+                    }
+                    dispatch({
+                        type: 'login-success',
+                        darkmode: x,
+                    })
                 } else {
                     dispatch({type: 'error', payload: 'cannot find this account'})
                 }
@@ -62,9 +70,29 @@ export const checklogin = () => {
         dispatch({type: 'loading'})
         const id = localStorage.getItem('uid')
         if (id) {
-            dispatch({type: 'login-success', payload: id})
+            Axios.get(`${apiurl}/user/userinfo/${id}`)
+            .then(res => {
+                var x = false
+                if (res.data.darkmode === 1) {
+                    x = true
+                }
+                dispatch({
+                    type: 'login-success',
+                    darkmode: x,
+                })
+            }).catch(err => {
+                console.log(err)
+                dispatch({type: 'error', payload: 'server error'})
+            })
         } else {
             dispatch({type: 'error', payload: null})
         }
+    }
+}
+
+export const logout = () => {
+    return (dispatch) => {
+        localStorage.removeItem('uid')
+        dispatch({type: 'logout'})
     }
 }

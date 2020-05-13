@@ -9,6 +9,7 @@ export default (state = INITIAL, action) => {
         case 'ganti' : return {...state, init:action.payload}
         case 'sidenav' : return {...state, sidenav:!state.sidenav}
         case 'dark' : return {...state, dark:!state.dark}
+        case 'login-success' : return {...state, dark:action.darkmode}
         default : return state
     }
 }
