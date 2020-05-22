@@ -96,7 +96,7 @@
 // ==============================================================================================================================================================
 
 var y = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-console.log(y.length)
+// console.log(y.length)
 
 var N = 6
 var users = [2,1,5,2,4,3,3,1,1]
@@ -169,4 +169,138 @@ function solution (N,users) {
     }
 }
 
-console.log(solution(N,users))
+// console.log(solution(N,users))
+
+var array = [2,1,4,3]
+var string = ''
+var stringarr = []
+var posb = []
+
+var j = 0
+while (j < array.length){
+    // console.log(j)
+    // string += array[j]
+    // var narr = array
+    // narr.shift()
+    // console.log(narr)
+    // console.log(array)
+    // var i = 0
+    // while (i < narr.length) {
+    //     string += narr[i]
+    //     var marr = narr
+    //     marr.splice(i,1)
+    //     var k = 0
+    //     while (k < marr.length) {
+    //         string += marr[k]
+    //         var larr = marr
+    //         larr.splice(k,1)
+    //         var jj = 0
+    //         while (jj < larr.length) {
+    //             string += larr[jj]
+    //             var barr = larr
+    //             barr.splice(jj,1)
+    //             jj++
+    //         }
+    //         k++
+    //     }
+    //     i++
+    // }
+    j++
+}
+
+// console.log(string)
+
+function ff (array,string) {
+    i = 0
+    while (i < array.length) {
+        if (array.length <= 1) {
+            var newstring = string + array[0]
+            posb.push(newstring)
+            console.log(posb)
+        } else {
+            // console.log(array[i])
+            var newstring = string + array[i]
+            var newarr = []
+            array.forEach(item => {
+                if (item !== array[i]) {
+                    newarr.push(item)
+                }
+            })
+            // console.log(array, newarr)
+            ff(newarr,newstring)
+        }
+        i++
+    }
+}
+
+// ff(array,string)
+// console.log(posb)
+
+const max = (arr) => {
+    var arrnew = []
+    for (i=0 ; i<arr.length ; i++) {
+        arrnew[i] = arr[i].toString()
+    }
+
+    var narr = []
+    for (i=0 ; i<arrnew.length ; i++) {
+        var set = 0
+        for (j=0 ; j<arrnew.length ; j++) {
+            if (arrnew[i] < arrnew[j]) {
+                set++
+            }
+        }
+        narr[set] = arrnew[i]
+    }
+
+    for (k=0 ; k<narr.length ; k++) {
+        for (i=0 ; i<narr.length ; i++) {
+            if (i !== narr.length - 1 && narr[i][0] === narr[i+1][0]){
+                if (narr[i].length > narr[i+1].length) {
+                    var tempor = narr[i]
+                    narr[i] = narr[i+1]
+                    narr[i+1] = tempor
+                }
+            }
+        }
+    }
+
+    var string = ''
+    narr.forEach(item => {
+        string += item
+    })
+    var numb = parseInt(string)
+
+    return narr
+}
+
+const min = (arr) => {
+    var arrnew = []
+    for (i=0 ; i<arr.length ; i++) {
+        arrnew[i] = arr[i].toString()
+    }
+
+    var narr = []
+    for (i=0 ; i<arrnew.length ; i++) {
+        var set = 0
+        for (j=0 ; j<arrnew.length ; j++) {
+            if (arrnew[i] > arrnew[j]) {
+                set++
+            }
+        }
+        narr[set] = arrnew[i]
+    }
+
+    var string = ''
+    narr.forEach(item => {
+        string += item
+    })
+    var numb = parseInt(string)
+
+    return numb
+}
+
+var x = [40, 100, 1, 5, 25, 10]
+var y = [100,10,1]
+
+console.log(max(y))

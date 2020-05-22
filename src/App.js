@@ -10,7 +10,7 @@ import Setting from './pages/setting'
 function App ({darkmode,darkuser,dark,checklogin,login}) {
 
   useEffect (() => {
-    checklogin()
+    checklogin() // jika menuju page welcome, dengan func jika ada localstorage akan mentriger ke profile page
     if (darkuser === 1) {
       darkmode()
     }

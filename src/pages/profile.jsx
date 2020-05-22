@@ -22,6 +22,8 @@ const Profile = ({login,loading}) => {
         })
     })
 
+    // penentu satu2nya biar ttp login adalah localstorage 'uid'
+    // tiap page yg butuh login dulu perlu ada statment if spt ini
     if (!localStorage.getItem('uid')) {
         return <Redirect to={'/'} />
     }

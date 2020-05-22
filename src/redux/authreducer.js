@@ -1,5 +1,5 @@
 const INITIAL = {
-    login: false,
+    login: false, // untuk mentriger ridirect jika berhasil login dari welcome page
     loading: false,
     message: '',
 }
